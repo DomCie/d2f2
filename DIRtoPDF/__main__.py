@@ -41,7 +41,7 @@ def main(argv: list) -> None:
             else:
                 convert.single(arg, output_path)
         else:
-            print(f"Skipping \"{arg}\", invalid path...")
+            print(f"skipping \"{arg}\", invalid path...")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# DIRtoPDF 1.0.0
+# DIRtoPDF 1.0.1
 
 A CLI tool written in Python to convert image folders to PDF files, using [PyMuPDF](https://github.com/pymupdf/PyMuPDF).
 
@@ -18,7 +18,9 @@ python3 -m DIRtoPDF
 
 ## Usage
 
-DIRtoPDF offers two modes: "Single" and "Multiple"
+DIRtoPDF offers two modes: "Single" and "Multiple".
+
+The images within the PDF are sorted by their filenames in alphanumerical order (ideally each image's filename corresponds to its designated page number).
 
 ### Single mode
 
@@ -48,6 +50,7 @@ python3 -m DIRtoPDF /a/path /another/path ... -O /an/output/path
 
 ## TODO
 
+- Options to modify the order of images 
 - A standalone shell client
 - A standalone GUI client
 
