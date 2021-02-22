@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-
-import convert
+import DIRtoPDF.convert as convert
 import getopt
 import os
 import sys
