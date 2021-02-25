@@ -1,4 +1,4 @@
-# DIRtoPDF 1.0.1
+# DIRtoPDF 1.1.0
 
 A CLI tool written in Python to convert image folders to PDF files, using [PyMuPDF](https://github.com/pymupdf/PyMuPDF).
 
@@ -37,6 +37,8 @@ Useful for converting big batches of folders, this mode converts each image-cont
 ```commandline
 python3 -m DIRtoPDF -M /a/path /another/path ...
 
+OR
+
 python3 -m DIRtoPDF --multiple /a/path /another/path ...
 ```
 
@@ -46,6 +48,22 @@ By standard, DIRtoPDF saves the resulting PDF files to the current directory. If
 
 ```commandline
 python3 -m DIRtoPDF /a/path /another/path ... -O /an/output/path 
+```
+
+## Shell
+
+DIRtoPDF offers an interactive shell including all functions of the normal DIRtoPDF CLI tool.
+
+It's designated use is accessing it through standalone clients for users that don't want to use the CLI tool. They'll be released on short notice.
+
+Until then, you can already access the shell from the command line by entering the following:
+
+```commandline
+python3 -m DIRtoPDF -S
+
+OR
+
+python3 -m DIRtoPDF --shell
 ```
 
 ## TODO

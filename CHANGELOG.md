@@ -8,13 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Options to modify the order of images
+- Modify the order of images
+- Modify names of generated PDF files
 - Standalone shell client
 - Standalone GUI client
 
+## [1.1.0] - 2021-02-25
+
+### Added
+
+- Interactive shell (without own client)
+
+### Updated
+
+- Code improvements
+
+### Fixed
+
+- Generated PDF's names don't match with the actual basename of their source directory
+
 ## [1.0.1] - 2021-02-22
 
-## Updated
+### Updated
 
 - Code improvements
 - Updated README
@@ -26,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Core functionality: convert image folders into PDF files over CLI
 - "Multiple" mode for converting batches of folders more easily
 
-[Unreleased]: https://github.com/DomCie/DIRtoPDF/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/DomCie/DIRtoPDF/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/DomCie/DIRtoPDF/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/DomCie/DIRtoPDF/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/DomCie/DIRtoPDF/releases/tag/v1.0.0
