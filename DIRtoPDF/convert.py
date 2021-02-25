@@ -1,19 +1,10 @@
 import fitz
 import os
-import re
 
 
 def single(input_path: str, output_path: str) -> None:
     entries = sorted(os.scandir(input_path), key=lambda x: x.name)
-
-    path_split = re.split('/', input_path)
-    if path_split[-1] == '':
-        doc_name = path_split[-2] + '.pdf'
-    else:
-        doc_name = path_split[-1] + '.pdf'
-
-    if output_path[-1] in ('/', '\\'):
-        output_path = output_path[:-1]
+    doc_name = os.path.basename(input_path) + '.pdf'
 
     if len(entries) > 0:
         with fitz.open() as doc:
@@ -25,7 +16,7 @@ def single(input_path: str, output_path: str) -> None:
                     with fitz.open('pdf', img_pdf_stream) as img_pdf:
                         doc.newPage(width=rect.width, height=rect.height).showPDFpage(rect, img_pdf, 0)
 
-            doc.save(f'{output_path}/{doc_name}')
+            doc.save(os.path.join(output_path, doc_name))
             print(f"\"{doc_name}\" successfully saved to {output_path}")
 
 
