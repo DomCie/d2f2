@@ -1,1 +1,6 @@
 /.idea/
+/DIRtoPDF.egg-info/
+/build/
+/dist/
+/Pipfile
+/Pipfile.lock
