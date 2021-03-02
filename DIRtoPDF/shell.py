@@ -1,4 +1,4 @@
-from CONFIGURATIONS import *
+from DIRtoPDF.CONFIGURATIONS import *
 import DIRtoPDF.convert as convert
 import getopt
 import os
