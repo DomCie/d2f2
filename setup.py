@@ -1,12 +1,13 @@
 import setuptools
+from CONFIGURATIONS import *
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 setuptools.setup(
-    name="DIRtoPDF",
-    version="1.1.0",
-    author="DomCie",
+    name=MODULE_NAME,
+    version=VERSION,
+    author=AUTHOR,
     author_email="dev@domcie.net",
     description="CLI tool to convert image folders to PDF files",
     long_description=long_description,

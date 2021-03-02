@@ -16,7 +16,7 @@ def single(input_path: str, output_path: str, sorting_mode: int) -> None:
     elif sorting_mode == 6:
         entries = sorted(os.scandir(input_path), key=lambda x: x.stat.st_ctime_ns, reverse=True)
 
-    if input_path[-1] == '/':
+    if input_path[-1] in ('/', '\\'):
         input_path = input_path[:-1]
 
     doc_name = os.path.basename(input_path) + '.pdf'
