@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="DIRtoPDF",
-    version="1.2.0",
+    version="1.2.1",
     author="DomCie",
     author_email="dev@domcie.net",
     description="CLI tool to convert image folders to PDF files",
