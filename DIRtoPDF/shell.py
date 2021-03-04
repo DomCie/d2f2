@@ -10,10 +10,10 @@ def start() -> None:
 
     while True:
         argv = parse_args('--' + input('\n> '))
-        help_msg = "\nhelp\t\t\t\t\t\tShow this help.\n" \
+        help_msg = "\nhelp\t\t\t\t\tShow this help.\n" \
                    "single DIR [DIR...]\t\t\tConvert each given directory into a PDF file\n" \
-                   "multiple DIR [DIR...]\t\tConvert each directory WITHIN each given directory into a PDF file\n" \
-                   "exit\t\t\t\t\t\tClose this programme"
+                   "multiple DIR [DIR...]\t\t\tConvert each directory WITHIN each given directory into a PDF file\n" \
+                   "exit\t\t\t\t\tClose this programme"
         mode_selected = False
         is_mode_multiple = False
 
