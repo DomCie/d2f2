@@ -1,16 +1,16 @@
-# DIRtoPDF 1.2.0
+# DIRtoPDF 1.2.1
 
 A CLI tool written in Python to convert image folders to PDF files, using [PyMuPDF](https://github.com/pymupdf/PyMuPDF).
 
 ## Installation
 
-You can install (and update) DIRtoPDF from [PyPI](https://pypi.org/project/DIRtoPDF):
+You can install (and update) DIRtoPDF from [PyPI](https://pypi.org/project/DIRtoPDF) via the command line
 
 ```commandline
 pip3 install DIRtoPDF -U
 ```
 
-To use it:
+To use it, just type
 
 ```commandline
 python3 -m DIRtoPDF
@@ -18,9 +18,11 @@ python3 -m DIRtoPDF
 
 ## Usage
 
-DIRtoPDF offers two modes: "Single" and "Multiple".
+### Operation modes
 
-### Single mode
+DIRtoPDF offers two modes: "single" and "multiple".
+
+#### Single mode
 
 The standard mode, converts each given directory that contains images into a PDF file.
 
@@ -28,7 +30,7 @@ The standard mode, converts each given directory that contains images into a PDF
 python3 -m DIRtoPDF /a/path /another/path ...
 ```
 
-### Multiple mode
+#### Multiple mode
 
 Useful for converting big batches of folders, this mode converts each image-containing folder within the given directories into a PDF file. To use it, add the ``-M``/``--multiple`` option to the command:
 
@@ -44,7 +46,7 @@ By standard, DIRtoPDF saves the resulting PDF files to the current directory. If
 python3 -m DIRtoPDF /a/path /another/path ... -O /an/output/path 
 ```
 
-### Sorting modes
+### Sorting mode
 
 By default, DIRtoPDF sorts and saves the images in alphanumeric, ascending order (first special characters, then 0-9, then A-Z). If you wish for another way of sorting you can specify one by using the ``-S``/``--sort`` option:
 
@@ -52,10 +54,10 @@ By default, DIRtoPDF sorts and saves the images in alphanumeric, ascending order
 python3 -m DIRtoPDF /a/path /another/path ... -S MODE
 ```
 
-To use a certain mode, enter the corresponding number from the following list as the MODE parameter:
+There are 6 modes available at the time, to use one enter the corresponding number from the following list as the MODE parameter:
 
-1. Alphanumeric, ascending (A-Z) (_default_)
-2. Alphanumeric, descending (Z-A)
+1. Alphanumeric, ascending (_default_)
+2. Alphanumeric, descending
 3. Last time modified, oldest first
 4. Last time modified, newest first
 5. Time of creation / metadata change, oldest first
@@ -65,9 +67,9 @@ To use a certain mode, enter the corresponding number from the following list as
 
 DIRtoPDF offers an interactive shell including all functions of the normal DIRtoPDF CLI tool.
 
-It's designated use is accessing it through standalone clients for users that don't want to use the CLI tool. They'll be released on short notice.
+Standalone versions for the shell are available for Windows and Linux (see [Releases](https://github.com/DomCie/DIRtoPDF/releases))
 
-Until then, you can already access the shell from the command line by entering the following:
+You can also start the shell from the command line:
 
 ```commandline
 python3 -m DIRtoPDF --shell
@@ -75,9 +77,10 @@ python3 -m DIRtoPDF --shell
 
 ## TODO
 
-- Options to modify the order of images
-- A standalone shell client
-- A standalone GUI client
+* More output formats (EPUB, CBZ, MOBI)
+* Define a custom order for images
+* Modify names of PDF files
+* Standalone GUI client
 
 ## Disclaimer
 
