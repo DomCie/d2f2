@@ -1,5 +1,6 @@
 from DIRtoPDF.CONFIGURATIONS import *
-import DIRtoPDF.convert as convert
+from DIRtoPDF.convert import *
+
 import DIRtoPDF.shell as shell
 import getopt
 import os
@@ -16,21 +17,40 @@ def main(argv: list) -> None:
                f"oldest first\n\t\t\t\t\t\t\t [6] Time of creation / metatime change, newest first\n-O, " \
                f"--output OUTPUT_PATH\t\tSave PDF files to OUTPUT_PATH (default: current directory)"
     try:
-        opts, args = getopt.getopt(argv[1:], 'HMS:O:', ['help', 'multiple', 'shell', 'sort=', 'output='])
+        opts, args = getopt.getopt(argv[1:], 'F:HMO:S:', ['format=', 'help', 'multiple', 'output=', 'shell', 'sort='])
     except getopt.GetoptError:
         print(help_msg)
         sys.exit(2)
 
+    converter = None
+    is_multiple = False
     output_path = os.getcwd()
     sorting_mode = 1
-    is_multiple = False
 
     for opt, par in opts:
-        if opt in ('-H', '--help'):
+        if opt in ('-F', '--format'):
+            if par in ('PDF', 'CBZ'):
+                converter = ConverterFactory.get(par)
+            elif par == '':
+                print("error: no output format given", file=sys.stderr)
+                sys.exit(2)
+            else:
+                print(f"error: {par} isn't a valid output format", file=sys.stderr)
+                sys.exit(2)
+        elif opt in ('-H', '--help'):
             print(help_msg)
             sys.exit(0)
         elif opt in ('-M', '--multiple'):
             is_multiple = True
+        elif opt in ('-O', '--output'):
+            if os.path.exists(par):
+                output_path = par
+            elif par == '':
+                print("error: no output path given", file=sys.stderr)
+                sys.exit(2)
+            else:
+                print(f"error: {par} isn't a valid output path", file=sys.stderr)
+                sys.exit(1)
         elif opt == '--shell':
             shell.start()
             sys.exit(0)
@@ -43,26 +63,20 @@ def main(argv: list) -> None:
             else:
                 print(f"error: {par} isn't a valid sorting mode", file=sys.stderr)
                 sys.exit(1)
-        elif opt in ('-O', '--output'):
-            if os.path.exists(par):
-                output_path = par
-            elif par == '':
-                print("error: no output path given", file=sys.stderr)
-                sys.exit(2)
-            else:
-                print(f"error: output path {par} doesn't exist", file=sys.stderr)
-                sys.exit(1)
 
     if len(args) == 0:
         print(help_msg)
         sys.exit(2)
 
+    if converter is None:
+        converter = ConverterFactory.get('PDF')
+
     for arg in args:
         if os.path.exists(arg):
             if is_multiple:
-                convert.multiple(arg, output_path, sorting_mode)
+                converter.multiple(arg, output_path, sorting_mode)
             else:
-                convert.single(arg, output_path, sorting_mode)
+                converter.single(arg, output_path, sorting_mode)
         else:
             print(f"warning: skipping \"{arg}\", invalid path...")
 

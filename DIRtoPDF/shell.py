@@ -1,5 +1,5 @@
 from DIRtoPDF.CONFIGURATIONS import *
-import DIRtoPDF.convert as convert
+from DIRtoPDF.convert import *
 import getopt
 import os
 import sys
@@ -11,8 +11,8 @@ def start() -> None:
     while True:
         argv = parse_args('--' + input('\n> '))
         help_msg = "\nhelp\t\t\t\t\tShow this help.\n" \
-                   "single DIR [DIR...]\t\t\tConvert each given directory into a PDF file\n" \
-                   "multiple DIR [DIR...]\t\t\tConvert each directory WITHIN each given directory into a PDF file\n" \
+                   "single PATH [PATH...]\t\t\tConvert each PATH into a file\n" \
+                   "multiple PATH [PATH...]\t\t\tConvert each directory WITHIN each PATH into a file\n" \
                    "exit\t\t\t\t\tClose this programme"
         mode_selected = False
         is_mode_multiple = False
@@ -54,16 +54,29 @@ def start() -> None:
                                 if sorting_mode == '':
                                     sorting_mode = '1'
                                 elif sorting_mode in ('1', '2', '3', '4', '5', '6'):
-                                    for arg in args:
-                                        if os.path.exists(arg):
-                                            if is_mode_multiple:
-                                                convert.multiple(arg, output_path, int(sorting_mode))
-                                            else:
-                                                convert.single(arg, output_path, int(sorting_mode))
+                                    output_format = input("\nAVAILABLE FORMATS:\nPDF\nCBZ\nEnter your preferred format "
+                                                          "(or nothing to convert to PDF): ").capitalize()
+                                    output_format_given = False
+
+                                    while not output_format_given:
+                                        if output_format == '':
+                                            output_format = 'PDF'
+                                        elif output_format in ('PDF', 'CBZ'):
+                                            for arg in args:
+                                                if os.path.exists(arg):
+                                                    if is_mode_multiple:
+                                                        ConverterFactory.get(output_format).multiple(arg, output_path,
+                                                                                                     int(sorting_mode))
+                                                    else:
+                                                        ConverterFactory.get(output_format).single(arg, output_path,
+                                                                                                   int(sorting_mode))
+                                                else:
+                                                    print(f"\nwarning: skipping \"{arg}\", invalid path...")
+                                            output_path_given = True
+                                            sorting_mode_given = True
+                                            output_format_given = True
                                         else:
-                                            print(f"\nwarning: skipping \"{arg}\", invalid path...")
-                                    output_path_given = True
-                                    sorting_mode_given = True
+                                            output_format = input("Invalid output format, try again: ")
                                 else:
                                     sorting_mode = input("Invalid sorting mode, try again: ")
                         else:
