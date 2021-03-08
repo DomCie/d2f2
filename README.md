@@ -87,7 +87,7 @@ D2F2 --shell
 ## TODO
 
 * More output formats (EPUB, MOBI)
-* Define a custom order for images
+* Custom order for images
 * Modify names of output files
 * Standalone GUI client
 

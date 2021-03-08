@@ -8,10 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* More output formats (EPUB, CBZ, MOBI)
-* Define a custom order for images
-* Modify names of PDF files
+* More output formats (EPUB, MOBI)
+* Custom order for images
+* Modify names of output files
 * Standalone GUI client
+
+## [2.0.0] - 2021-03-08
+
+### Added
+
+* CBZ support
+* Tool can now be directly accessed from the command line without using ``python -m``
+
+### Changed
+
+* Changed module name from DIRtoPDF to D2F2
+* Code revamp
 
 ## [1.2.1] - 2021-03-04
 
@@ -59,9 +71,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Core functionality: convert image folders into PDF files over CLI
 * "Multiple" mode for converting batches of folders more easily
 
-[Unreleased]: https://github.com/DomCie/DIRtoPDF/compare/v1.2.1...HEAD
-[1.2.1]: https://github.com/DomCie/DIRtoPDF/compare/v1.2.0...v1.2.1
-[1.2.0]: https://github.com/DomCie/DIRtoPDF/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/DomCie/DIRtoPDF/compare/v1.0.1...v1.1.0
-[1.0.1]: https://github.com/DomCie/DIRtoPDF/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/DomCie/DIRtoPDF/releases/tag/v1.0.0
+[Unreleased]: https://github.com/DomCie/D2F2/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/DomCie/D2F2/compare/v1.2.1...v2.0.0
+[1.2.1]: https://github.com/DomCie/D2F2/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/DomCie/D2F2/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/DomCie/D2F2/compare/v1.0.1...v1.1.0
+[1.0.1]: https://github.com/DomCie/D2F2/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/DomCie/D2F2/releases/tag/v1.0.0
