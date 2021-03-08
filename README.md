@@ -76,7 +76,7 @@ Currently, there are 6 sorting modes available. Use the corresponding number fro
 
 D2F2 offers an interactive shell including all functions of the normal D2F2 CLI tool.
 
-Standalone versions for the shell are available for Windows and Linux (see [Releases](https://github.com/DomCie/DIRtoPDF/releases))
+Standalone versions for the shell are available for Windows and Linux (see [Releases](https://github.com/DomCie/D2F2/releases))
 
 You can also start the shell from the command line:
 
