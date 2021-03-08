@@ -1,5 +1,5 @@
-from DIRtoPDF.CONFIGURATIONS import *
-from DIRtoPDF.convert import *
+from D2F2.CONFIGURATIONS import *
+from D2F2.convert import *
 import getopt
 import os
 import sys
@@ -12,20 +12,20 @@ def start() -> None:
         argv = parse_args('--' + input('\n> '))
         help_msg = "\nhelp\t\t\t\t\tShow this help.\n" \
                    "single PATH [PATH...]\t\t\tConvert each PATH into a file\n" \
-                   "multiple PATH [PATH...]\t\t\tConvert each directory WITHIN each PATH into a file\n" \
+                   "batch PATH [PATH...]\t\t\tConvert each subfolder of each PATH into a file\n" \
                    "exit\t\t\t\t\tClose this programme"
         mode_selected = False
         is_mode_multiple = False
 
         try:
-            opts, args = getopt.getopt(argv, '', ['exit', 'help', 'multiple', 'single'])
+            opts, args = getopt.getopt(argv, '', ['exit', 'help', 'batch', 'single'])
 
             for opt, par in opts:
                 if opt == '--exit':
                     sys.exit(0)
                 elif opt == '--help':
                     print(help_msg)
-                elif opt == '--multiple':
+                elif opt == '--batch':
                     mode_selected = True
                     is_mode_multiple = True
                 elif opt == '--single':
@@ -42,9 +42,9 @@ def start() -> None:
                         if output_path == '':
                             output_path = os.getcwd()
                         elif os.path.exists(output_path):
-                            sorting_mode = input("\nAVAILABLE SORTING MODES:\n[1] A-Z (default)\n[2] Z-A\n[3] Last "
-                                                 "time modified, oldest first\n[4] Last time modified, newest first\n["
-                                                 "5] Time of creation / metadata change, oldest first\n[6] Time of "
+                            sorting_mode = input("\nAVAILABLE SORTING MODES:\n[ 1] A-Z (default)\n[-1] Z-A\n[ 2] Last "
+                                                 "time modified, oldest first\n[-2] Last time modified, newest first\n["
+                                                 " 3] Time of creation / metadata change, oldest first\n[-3] Time of "
                                                  "creation / metadata change, newest first\n\nEnter the number "
                                                  "associated with your preferred sorting mode (or "
                                                  "nothing to sort from A to Z): ")
@@ -53,7 +53,7 @@ def start() -> None:
                             while not sorting_mode_given:
                                 if sorting_mode == '':
                                     sorting_mode = '1'
-                                elif sorting_mode in ('1', '2', '3', '4', '5', '6'):
+                                elif sorting_mode in ('1', '-1', '2', '-2', '3', '-3'):
                                     output_format = input("\nAVAILABLE FORMATS:\nPDF\nCBZ\nEnter your preferred format "
                                                           "(or nothing to convert to PDF): ").capitalize()
                                     output_format_given = False
@@ -65,11 +65,11 @@ def start() -> None:
                                             for arg in args:
                                                 if os.path.exists(arg):
                                                     if is_mode_multiple:
-                                                        ConverterFactory.get(output_format).multiple(arg, output_path,
+                                                        ConverterFactory.create(output_format).batch(arg, output_path,
                                                                                                      int(sorting_mode))
                                                     else:
-                                                        ConverterFactory.get(output_format).single(arg, output_path,
-                                                                                                   int(sorting_mode))
+                                                        ConverterFactory.create(output_format).single(arg, output_path,
+                                                                                                      int(sorting_mode))
                                                 else:
                                                     print(f"\nwarning: skipping \"{arg}\", invalid path...")
                                             output_path_given = True

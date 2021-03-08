@@ -1,3 +1,0 @@
-MODULE_NAME = "DIRtoPDF"
-VERSION = "1.2.1"
-AUTHOR = "DomCie"

@@ -1,85 +1,94 @@
-# DIRtoPDF 1.2.1
+# D2F2 2.0.0
 
-A CLI tool written in Python to convert image folders to PDF files, using [PyMuPDF](https://github.com/pymupdf/PyMuPDF).
+D2F2 (formerly _DIRtoPDF_) is a tool written in Python to convert image folders into files.
 
 ## Installation
 
-You can install (and update) DIRtoPDF from [PyPI](https://pypi.org/project/DIRtoPDF) via the command line
+You can install (and update) D2F2 from [PyPI](https://pypi.org/project/D2F2) via the command line
 
 ```commandline
-pip3 install DIRtoPDF -U
+pip install D2F2 -U
 ```
 
-To use it, just type
-
-```commandline
-python3 -m DIRtoPDF
-```
+or use one of the standalone versions (see below).
 
 ## Usage
 
 ### Operation modes
 
-DIRtoPDF offers two modes: "single" and "multiple".
+D2F2 offers two modes of operation: "single" and "batch".
 
 #### Single mode
 
-The standard mode, converts each given directory that contains images into a PDF file.
+The standard mode, converts each given directory into a file.
 
 ```commandline
-python3 -m DIRtoPDF /a/path /another/path ...
+D2F2 /a/path /another/path ...
 ```
 
-#### Multiple mode
+#### Batch mode
 
-Useful for converting big batches of folders, this mode converts each image-containing folder within the given directories into a PDF file. To use it, add the ``-M``/``--multiple`` option to the command:
+Useful for converting big batches of folders, this mode converts each subdirectory within the given directories into a file. To use it, add the ``-B``/``--batch`` option to the command:
 
 ```commandline
-python3 -m DIRtoPDF -M /a/path /another/path ...
+D2F2 -B /a/path /another/path ...
 ```
+
+### Output format
+
+By default, D2F2 saves files in the PDF format. If you want to use another supported format, use the ``-F``/``--format`` option:
+
+```commandline
+D2F2 /a/path ... -F FORMAT
+```
+
+Currently, there are 2 supported formats (with more to be added in the future). Use the appropriate format as the FORMAT parameter:
+
+* [PDF] - Portable Document Format (_default_)
+* [CBZ] - Comic Book Format, ZIP-compressed
 
 ### Output path
 
-By standard, DIRtoPDF saves the resulting PDF files to the current directory. If you wish to specify an output path to save your PDF files to, add the ``-O``/``--output`` option to the command:
+By standard, D2F2 saves files to the current directory. If you want another output path, use the ``-O``/``--output`` option:
 
 ```commandline
-python3 -m DIRtoPDF /a/path /another/path ... -O /an/output/path 
+D2F2 /a/path ... -O /an/output/path 
 ```
 
 ### Sorting mode
 
-By default, DIRtoPDF sorts and saves the images in alphanumeric, ascending order (first special characters, then 0-9, then A-Z). If you wish for another way of sorting you can specify one by using the ``-S``/``--sort`` option:
+By default, D2F2 sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-S``/``--sort`` option:
 
 ```commandline
-python3 -m DIRtoPDF /a/path /another/path ... -S MODE
+D2F2 /a/path ... -S MODE
 ```
 
-There are 6 modes available at the time, to use one enter the corresponding number from the following list as the MODE parameter:
+Currently, there are 6 sorting modes available. Use the corresponding number from the following list as the MODE parameter:
 
-1. Alphanumeric, ascending (_default_)
-2. Alphanumeric, descending
-3. Last time modified, oldest first
-4. Last time modified, newest first
-5. Time of creation / metadata change, oldest first
-6. Time of creation / metadata change, newest first
+* [ 1] Alphanumeric, ascending (_default_)
+* [-1] Alphanumeric, descending
+* [ 2] Last time modified, oldest first
+* [-2] Last time modified, newest first
+* [ 3] Time of creation / metadata change, oldest first
+* [-3] Time of creation / metadata change, newest first
 
-### Shell
+## Shell
 
-DIRtoPDF offers an interactive shell including all functions of the normal DIRtoPDF CLI tool.
+D2F2 offers an interactive shell including all functions of the normal D2F2 CLI tool.
 
 Standalone versions for the shell are available for Windows and Linux (see [Releases](https://github.com/DomCie/DIRtoPDF/releases))
 
 You can also start the shell from the command line:
 
 ```commandline
-python3 -m DIRtoPDF --shell
+D2F2 --shell
 ```
 
 ## TODO
 
-* More output formats (EPUB, CBZ, MOBI)
+* More output formats (EPUB, MOBI)
 * Define a custom order for images
-* Modify names of PDF files
+* Modify names of output files
 * Standalone GUI client
 
 ## Disclaimer
