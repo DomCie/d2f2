@@ -1,4 +1,3 @@
-from D2F2.CONFIGURATIONS import *
 from abc import ABC, abstractmethod
 import fitz
 import os
@@ -136,4 +135,7 @@ class ConverterFactory:
 
     @staticmethod
     def create(converter_type: str) -> Converter:
-        return CONVERTER_DICT[converter_type]()
+        return {
+            'PDF': PDFConverter,
+            'CBZ': CBZConverter
+        }[converter_type]()

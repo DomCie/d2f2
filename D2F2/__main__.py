@@ -16,11 +16,11 @@ def main(argv=None) -> int:
                f"file\n-F, --format FORMAT\t\t\tSpecify an output format\n\t\t\t\t\tAVAILABLE FORMATS:\t[PDF] " \
                f"Portable Document Format (default)\n\t\t\t\t\t\t\t\t[CBZ] Comic Book Format, " \
                f"ZIP-compressed\n--shell\t\t\t\t\tOpen interactive shell\n-S, --sort MODE\t\t\t\tSpecify a sorting " \
-               f"mode\n\t\t\t\t\tAVAILABLE MODES: [ 1] A-Z (default)\n\t\t\t\t\t\t\t [-1] Z-A\n\t\t\t\t\t\t\t [ 2] " \
-               f"Last time modified, oldest first\n\t\t\t\t\t\t\t [-2] Last time modified, " \
-               f"newest first\n\t\t\t\t\t\t\t [ 3] Time of creation / metadata change, oldest first\n\t\t\t\t\t\t\t [" \
-               f"-3] Time of creation / metadata change, newest first\n-O, --output OUTPUT_PATH\t\tSave files to " \
-               f"OUTPUT_PATH (default: current directory)\n"
+               f"mode\n\t\t\t\t\tAVAILABLE MODES:\t[ 1] A-Z (default)\n\t\t\t\t\t\t\t\t[-1] Z-A\n\t\t\t\t\t\t\t\t" \
+               f"[ 2] Last time modified, oldest first\n\t\t\t\t\t\t\t\t[-2] Last time modified, " \
+               f"newest first\n\t\t\t\t\t\t\t\t[ 3] Time of creation / metadata change, " \
+               f"oldest first\n\t\t\t\t\t\t\t\t[-3] Time of creation / metadata change, newest first\n-O, --output " \
+               f"OUTPUT_PATH\t\tSave files to OUTPUT_PATH (default: current directory)"
     try:
         opts, args = getopt.getopt(argv, 'BF:HO:S:', ['batch', 'format=', 'help', 'output=', 'shell', 'sort='])
     except getopt.GetoptError:
