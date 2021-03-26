@@ -1,4 +1,3 @@
-from D2F2.CONFIGURATIONS import *
 from D2F2.convert import *
 
 import D2F2.shell as shell
@@ -7,11 +6,10 @@ import os
 import sys
 
 
-def main(argv=None) -> int:
-    if argv is None:
-        argv = sys.argv[1:]
+def main() -> int:
+    argv = sys.argv
 
-    help_msg = f"{MODULE_NAME} [OPTIONS] PATH [PATH...]\nConvert image folders into files\n\nOPTIONS:\n-H, " \
+    help_msg = f"{argv[0]} [OPTIONS] PATH [PATH...]\nConvert image folders into files\n\nOPTIONS:\n-H, " \
                f"--help\t\t\t\tShow this help\n-B, --batch\t\t\t\tConvert each subfolder of PATH to a " \
                f"file\n-F, --format FORMAT\t\t\tSpecify an output format\n\t\t\t\t\tAVAILABLE FORMATS:\t[PDF] " \
                f"Portable Document Format (default)\n\t\t\t\t\t\t\t\t[CBZ] Comic Book Format, " \
@@ -22,7 +20,7 @@ def main(argv=None) -> int:
                f"oldest first\n\t\t\t\t\t\t\t\t[-3] Time of creation / metadata change, newest first\n-O, --output " \
                f"OUTPUT_PATH\t\tSave files to OUTPUT_PATH (default: current directory)"
     try:
-        opts, args = getopt.getopt(argv, 'BF:HO:S:', ['batch', 'format=', 'help', 'output=', 'shell', 'sort='])
+        opts, args = getopt.getopt(argv[1:], 'BF:HO:S:', ['batch', 'format=', 'help', 'output=', 'shell', 'sort='])
     except getopt.GetoptError:
         print(help_msg)
         return 2
@@ -89,4 +87,4 @@ def main(argv=None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main())

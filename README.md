@@ -1,4 +1,4 @@
-# D2F2 2.0.2
+# D2F2 2.0.3
 
 D2F2 (formerly _DIRtoPDF_) is a tool written in Python to convert image folders into files.
 
@@ -14,6 +14,8 @@ or use one of the standalone versions (see below).
 
 ## Usage
 
+Please note: ``d2f2`` and ``D2F2`` are interchangeable.
+
 ### Operation modes
 
 D2F2 offers two modes of operation: "single" and "batch".
@@ -23,7 +25,7 @@ D2F2 offers two modes of operation: "single" and "batch".
 The standard mode, converts each given directory into a file.
 
 ```commandline
-D2F2 /a/path /another/path ...
+d2f2 /a/path /another/path ...
 ```
 
 #### Batch mode
@@ -31,7 +33,7 @@ D2F2 /a/path /another/path ...
 Useful for converting big batches of folders, this mode converts each subdirectory within the given directories into a file. To use it, add the ``-B``/``--batch`` option to the command:
 
 ```commandline
-D2F2 -B /a/path /another/path ...
+d2f2 -B /a/path /another/path ...
 ```
 
 ### Output format
@@ -39,7 +41,7 @@ D2F2 -B /a/path /another/path ...
 By default, D2F2 saves files in the PDF format. If you want to use another supported format, use the ``-F``/``--format`` option:
 
 ```commandline
-D2F2 /a/path ... -F FORMAT
+d2f2 /a/path ... -F FORMAT
 ```
 
 Currently, there are 2 supported formats (with more to be added in the future). Use the appropriate format as the FORMAT parameter:
@@ -52,7 +54,7 @@ Currently, there are 2 supported formats (with more to be added in the future). 
 By standard, D2F2 saves files to the current directory. If you want another output path, use the ``-O``/``--output`` option:
 
 ```commandline
-D2F2 /a/path ... -O /an/output/path 
+d2f2 /a/path ... -O /an/output/path 
 ```
 
 ### Sorting mode
@@ -60,7 +62,7 @@ D2F2 /a/path ... -O /an/output/path
 By default, D2F2 sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-S``/``--sort`` option:
 
 ```commandline
-D2F2 /a/path ... -S MODE
+d2f2 /a/path ... -S MODE
 ```
 
 Currently, there are 6 sorting modes available. Use the corresponding number from the following list as the MODE parameter:
@@ -81,7 +83,7 @@ Standalone versions for the shell are available for Windows and Linux (see [Rele
 You can also start the shell from the command line:
 
 ```commandline
-D2F2 --shell
+d2f2 --shell
 ```
 
 ## TODO
