@@ -1,3 +1,3 @@
 MODULE_NAME = "D2F2"
-VERSION = "2.0.1"
+VERSION = "2.0.2"
 AUTHOR = "DomCie"
