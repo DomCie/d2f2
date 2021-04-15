@@ -1,5 +1,5 @@
-from D2F2.CONFIGURATIONS import *
-from D2F2.convert import *
+from d2f2.CONFIGURATIONS import *
+from d2f2.convert import *
 import getopt
 import os
 import sys

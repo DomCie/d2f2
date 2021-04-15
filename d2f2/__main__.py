@@ -1,6 +1,6 @@
-from D2F2.convert import *
+from d2f2.convert import *
 
-import D2F2.shell as shell
+import d2f2.shell as shell
 import getopt
 import os
 import sys

@@ -1,6 +1,6 @@
-# d2f2 2.0.3
+# d2f2 2.1.0
 
-*d2f2* (formerly _DIRtoPDF_) is a tool written in Python to convert image folders into files.
+*d2f2* is a tool written in Python to convert image folders into files.
 
 ## Installation
 
