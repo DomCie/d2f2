@@ -1,24 +1,22 @@
-# D2F2 2.0.3
+# d2f2 2.0.3
 
-D2F2 (formerly _DIRtoPDF_) is a tool written in Python to convert image folders into files.
+*d2f2* (formerly _DIRtoPDF_) is a tool written in Python to convert image folders into files.
 
 ## Installation
 
-You can install (and update) D2F2 from [PyPI](https://pypi.org/project/D2F2) via the command line
+You can install (and update) *d2f2* from [PyPI](https://pypi.org/project/d2f2) via the command line
 
 ```commandline
-pip install D2F2 -U
+pip install d2f2 -U
 ```
 
 or use one of the standalone versions (see below).
 
 ## Usage
 
-Please note: ``d2f2`` and ``D2F2`` are interchangeable.
-
 ### Operation modes
 
-D2F2 offers two modes of operation: "single" and "batch".
+*d2f2* offers two modes of operation: "single" and "batch".
 
 #### Single mode
 
@@ -38,7 +36,7 @@ d2f2 -B /a/path /another/path ...
 
 ### Output format
 
-By default, D2F2 saves files in the PDF format. If you want to use another supported format, use the ``-F``/``--format`` option:
+By default, *d2f2* saves files in the PDF format. If you want to use another supported format, use the ``-F``/``--format`` option:
 
 ```commandline
 d2f2 /a/path ... -F FORMAT
@@ -51,7 +49,7 @@ Currently, there are 2 supported formats (with more to be added in the future). 
 
 ### Output path
 
-By standard, D2F2 saves files to the current directory. If you want another output path, use the ``-O``/``--output`` option:
+By standard, *d2f2* saves files to the current directory. If you want another output path, use the ``-O``/``--output`` option:
 
 ```commandline
 d2f2 /a/path ... -O /an/output/path 
@@ -59,7 +57,7 @@ d2f2 /a/path ... -O /an/output/path
 
 ### Sorting mode
 
-By default, D2F2 sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-S``/``--sort`` option:
+By default, *d2f2* sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-S``/``--sort`` option:
 
 ```commandline
 d2f2 /a/path ... -S MODE
@@ -76,7 +74,7 @@ Currently, there are 6 sorting modes available. Use the corresponding number fro
 
 ## Shell
 
-D2F2 offers an interactive shell including all functions of the normal D2F2 CLI tool.
+*d2f2* offers an interactive shell including all functions of the normal *d2f2* CLI tool.
 
 Standalone versions for the shell are available for Windows and Linux (see [Releases](https://github.com/DomCie/D2F2/releases))
 
