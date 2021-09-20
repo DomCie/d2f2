@@ -53,15 +53,16 @@ class Converter(ABC):
         """
 
         entries = list(filter(lambda x: x.is_file(), self.sorted_entries(os.scandir(input_path), sorting_mode)))
+        len_entries = len(entries)
 
         if input_path[-1] in ('/', '\\'):
             input_path = input_path[:-1]
 
-        if len(entries) > 0:
+        if len_entries > 0:
             doc_name = os.path.basename(input_path) + self.file_extension
             self.convert(entries, doc_name, output_path)
         else:
-            print(f"\nskipping {os.path.basename(input_path)}, empty directory...")
+            print(f"skipping {os.path.basename(input_path)}, empty directory...")
 
     def batch(self, input_path: str, output_path=os.getcwd(), sorting_mode=1) -> None:
         """Converts each subdirectory of a directory into a file.
@@ -113,7 +114,7 @@ class PDFConverter(Converter):
 
             doc.save(os.path.join(output_path, doc_name))
 
-        print(f"\n\"{doc_name}\" saved to {output_path}")
+        print(f"\"{doc_name}\" saved to {output_path}")
 
 
 class CBZConverter(Converter):
@@ -128,7 +129,7 @@ class CBZConverter(Converter):
                 suffix = pathlib.Path(e.path).suffix
                 zf.write(e.path, f"{i + 1}{suffix}", compress_type=zipfile.ZIP_DEFLATED)
 
-        print(f"\n\"{doc_name}\" saved to {output_path}")
+        print(f"\"{doc_name}\" saved to {output_path}")
 
 
 class ConverterFactory:

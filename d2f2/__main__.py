@@ -1,3 +1,4 @@
+from d2f2.CONFIGURATIONS import *
 from d2f2.convert import *
 
 import d2f2.shell as shell
@@ -9,18 +10,18 @@ import sys
 def main() -> int:
     argv = sys.argv
 
-    help_msg = f"{argv[0]} [OPTIONS] PATH [PATH...]\nConvert image folders into files\n\nOPTIONS:\n-H, " \
-               f"--help\t\t\t\tShow this help\n-B, --batch\t\t\t\tConvert each subfolder of PATH to a " \
-               f"file\n-F, --format FORMAT\t\t\tSpecify an output format\n\t\t\t\t\tAVAILABLE FORMATS:\t[PDF] " \
+    help_msg = f"{MODULE_NAME} [OPTIONS] PATH [PATH...]\nConvert image folders into files\n\nOPTIONS:\n-h, " \
+               f"--help\t\t\t\tShow this help\n-b, --batch\t\t\t\tConvert each subfolder of PATH to a " \
+               f"file\n-f, --format FORMAT\t\t\tSpecify an output format\n\t\t\t\t\tAVAILABLE FORMATS:\t[PDF] " \
                f"Portable Document Format (default)\n\t\t\t\t\t\t\t\t[CBZ] Comic Book Format, " \
-               f"ZIP-compressed\n--shell\t\t\t\t\tOpen interactive shell\n-S, --sort MODE\t\t\t\tSpecify a sorting " \
+               f"ZIP-compressed\n--shell\t\t\t\t\tOpen interactive shell\n-s, --sort MODE\t\t\t\tSpecify a sorting " \
                f"mode\n\t\t\t\t\tAVAILABLE MODES:\t[ 1] A-Z (default)\n\t\t\t\t\t\t\t\t[-1] Z-A\n\t\t\t\t\t\t\t\t" \
                f"[ 2] Last time modified, oldest first\n\t\t\t\t\t\t\t\t[-2] Last time modified, " \
                f"newest first\n\t\t\t\t\t\t\t\t[ 3] Time of creation / metadata change, " \
-               f"oldest first\n\t\t\t\t\t\t\t\t[-3] Time of creation / metadata change, newest first\n-O, --output " \
+               f"oldest first\n\t\t\t\t\t\t\t\t[-3] Time of creation / metadata change, newest first\n-o, --output " \
                f"OUTPUT_PATH\t\tSave files to OUTPUT_PATH (default: current directory)"
     try:
-        opts, args = getopt.getopt(argv[1:], 'BF:HO:S:', ['batch', 'format=', 'help', 'output=', 'shell', 'sort='])
+        opts, args = getopt.getopt(argv[1:], 'bf:ho:s:', ['batch', 'format=', 'help', 'output=', 'shell', 'sort='])
     except getopt.GetoptError:
         print(help_msg)
         return 2
@@ -31,9 +32,9 @@ def main() -> int:
     sorting_mode = 1
 
     for opt, par in opts:
-        if opt in ('-B', '--batch'):
+        if opt in ('-b', '--batch'):
             is_batch = True
-        elif opt in ('-F', '--format'):
+        elif opt in ('-f', '--format'):
             if par in ('PDF', 'CBZ'):
                 converter = ConverterFactory.create(par)
             elif par == '':
@@ -42,10 +43,10 @@ def main() -> int:
             else:
                 print(f"error: {par} isn't a valid output format", file=sys.stderr)
                 return 2
-        elif opt in ('-H', '--help'):
+        elif opt in ('-h', '--help'):
             print(help_msg)
             return 0
-        elif opt in ('-O', '--output'):
+        elif opt in ('-o', '--output'):
             if os.path.exists(par):
                 output_path = par
             elif par == '':
@@ -57,7 +58,7 @@ def main() -> int:
         elif opt == '--shell':
             shell.start()
             return 0
-        elif opt in ('-S', '--sort'):
+        elif opt in ('-s', '--sort'):
             if par in ('1', '-1', '2', '-2', '3', '-3'):
                 sorting_mode = int(par)
             elif par == '':

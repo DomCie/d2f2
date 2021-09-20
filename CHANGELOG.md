@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Modify names of output files
 * Standalone GUI client
 
+## [2.1.2] - 2021-09-20
+
+### Changed
+
+* Command can now only be invoked with ``d2f2``
+* Option flags are now all lowercase
+
 ## [2.1.0] - 2021-04-16
 
 ### Changed
@@ -100,7 +107,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Core functionality: convert image folders into PDF files over CLI
 * "Multiple" mode for converting batches of folders more easily
 
-[Unreleased]: https://github.com/DomCie/D2F2/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/DomCie/D2F2/compare/v2.1.2...HEAD
+[2.1.2]: https://github.com/DomCie/D2F2/compare/v2.1.0...v2.1.2
 [2.1.0]: https://github.com/DomCie/D2F2/compare/v2.0.3...v2.1.0
 [2.0.3]: https://github.com/DomCie/D2F2/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/DomCie/D2F2/compare/v2.0.1...v2.0.2

@@ -1,4 +1,4 @@
-# d2f2 2.1.0
+# d2f2 2.1.2
 
 *d2f2* is a tool written in Python to convert image folders into files.
 
@@ -28,18 +28,18 @@ d2f2 /a/path /another/path ...
 
 #### Batch mode
 
-Useful for converting big batches of folders, this mode converts each subdirectory within the given directories into a file. To use it, add the ``-B``/``--batch`` option to the command:
+Useful for converting big batches of folders, this mode converts each subdirectory within the given directories into a file. To use it, add the ``-b``/``--batch`` option to the command:
 
 ```commandline
-d2f2 -B /a/path /another/path ...
+d2f2 -b /a/path /another/path ...
 ```
 
 ### Output format
 
-By default, *d2f2* saves files in the PDF format. If you want to use another supported format, use the ``-F``/``--format`` option:
+By default, *d2f2* saves files in the PDF format. If you want to use another supported format, use the ``-f``/``--format`` option:
 
 ```commandline
-d2f2 /a/path ... -F FORMAT
+d2f2 /a/path ... -f FORMAT
 ```
 
 Currently, there are 2 supported formats (with more to be added in the future). Use the appropriate format as the FORMAT parameter:
@@ -49,18 +49,18 @@ Currently, there are 2 supported formats (with more to be added in the future). 
 
 ### Output path
 
-By standard, *d2f2* saves files to the current directory. If you want another output path, use the ``-O``/``--output`` option:
+By standard, *d2f2* saves files to the current directory. If you want another output path, use the ``-o``/``--output`` option:
 
 ```commandline
-d2f2 /a/path ... -O /an/output/path 
+d2f2 /a/path ... -o /an/output/path 
 ```
 
 ### Sorting mode
 
-By default, *d2f2* sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-S``/``--sort`` option:
+By default, *d2f2* sorts the images in alphanumeric, ascending order (A-Z). If you want to use another sorting mode you can specify one by using the ``-s``/``--sort`` option:
 
 ```commandline
-d2f2 /a/path ... -S MODE
+d2f2 /a/path ... -s MODE
 ```
 
 Currently, there are 6 sorting modes available. Use the corresponding number from the following list as the MODE parameter:
