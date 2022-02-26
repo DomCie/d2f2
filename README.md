@@ -1,4 +1,4 @@
-# d2f2 2.1.2
+# d2f2 2.1.3
 
 *d2f2* is a tool written in Python to convert image folders into files.
 

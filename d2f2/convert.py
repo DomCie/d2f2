@@ -108,9 +108,9 @@ class PDFConverter(Converter):
             for e in entries:
                 with fitz.open(e.path) as img:
                     rect = img[0].rect
-                    img_as_pdf = img.convertToPDF()
+                    img_as_pdf = img.convert_to_pdf()
                 with fitz.open('pdf', img_as_pdf) as page:
-                    doc.newPage(width=rect.width, height=rect.height).showPDFpage(rect, page, 0)
+                    doc.new_page(width=rect.width, height=rect.height).show_pdf_page(rect, page, 0)
 
             doc.save(os.path.join(output_path, doc_name))
 
